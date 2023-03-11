@@ -1,7 +1,7 @@
 const Recipe = () => {
 
     const getRecipe = async() => {
-        const call = await fetch('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2')
+        const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=apples`)
         const res = await call.json()
         console.log(res);
     }

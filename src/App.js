@@ -2,6 +2,8 @@ import './App.css';
 import Nav from './components/Nav';
 import Recipe from './components/Recipe';
 import './styles/Nav.css'
+import './styles/Recipes.css'
+
 
 function App() {
   return (

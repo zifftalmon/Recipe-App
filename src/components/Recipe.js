@@ -24,11 +24,11 @@ const Recipe = () => {
     }
 
     return (
-        <div>
+        <div className='recipesDiv'>
             {
                 recipes.map((item,i) => {
                     return(
-                        <div key={i}>
+                        <div className='recipe' key={i}>
                             <h1 id={item.id} onClick={showId}>{item.title}</h1>
                         </div>
                     )

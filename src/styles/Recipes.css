@@ -1,0 +1,10 @@
+.recipesDiv {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+.recipe {
+    text-align: center;
+    width: 30vw;
+}

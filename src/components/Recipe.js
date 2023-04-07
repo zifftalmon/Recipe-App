@@ -28,8 +28,14 @@ const Recipe = () => {
             {
                 recipes.map((item,i) => {
                     return(
-                        <div className='recipe' key={i}>
-                            <h1 id={item.id} onClick={showId}>{item.title}</h1>
+                        <div id='recipe' className={`recipe${i}`} key={i}>
+                            <h1 id={item.id} 
+                            onClick={(e) =>
+                                setId(e.target.id)
+                                 
+                            }>
+                            {item.title}
+                            </h1>
                         </div>
                     )
                 })

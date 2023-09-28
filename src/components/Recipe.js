@@ -17,8 +17,7 @@ const Recipe = () => {
     const [id,setId] = useState()
 
     const showId = async(e) => {
-        setId(e.target.id)
-        const call = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
+        const call = await fetch(`https://api.spoonacular.com/recipes/${e.target.id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
         const res = await call.json()
         console.log(res);
     }
@@ -28,11 +27,10 @@ const Recipe = () => {
             {
                 recipes.map((item,i) => {
                     return(
-                        <div id='recipe' className={`recipe${i}`} key={i}>
+                        <div id='recipe' className={`recipe${i}`} key={i} onClick={showId}>
                             <h1 id={item.id} 
                             onClick={(e) =>
                                 setId(e.target.id)
-                                 
                             }>
                             {item.title}
                             </h1>

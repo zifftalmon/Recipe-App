@@ -15,8 +15,10 @@ body {
   background-color: #186CE094;
   font-family: Bookman Old Style,Poppins, sans-serif;
 }
+hr {
+  width: 80%;
+}
 .nav {
-  font-family: Editoral New;
   font-style: italic;
   font-size: 20px;
   font-weight: 900;
@@ -39,6 +41,41 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+/* recipes component styles */
 .recipes-div {
+  display: grid;
+  grid-template-columns: repeat(2,0.3fr);
+  grid-template-rows: repeat(5,1.2fr);
+  place-items: center;
+  justify-content: center;
   animation: fadeIn 2s;
+}
+#recipe{
+  font-family: Bookman Old Style,Poppins, sans-serif;
+  font-style: thin;
+  cursor: pointer;
+}
+#recipe::after {
+  border: 1px solid black;
+}
+.recipe1,.recipe2,.recipe5,.recipe6,.recipe9 {
+  text-align: center;
+  width: 25vw;
+  padding: 1.2em;
+  margin: 1em;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  background-color: #4e87841f;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px; 
+}
+/* search component style */
+.search-div {
+  padding: 2em;
+  background-color: #186CE024;
+}
+.search-div input{
+  font-family: Bookman Old Style,Poppins, sans-serif;
+  font-size: 20px;
 }

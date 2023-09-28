@@ -1,12 +1,16 @@
 import {useState,useEffect} from 'react'
-import Search from './Search'
 
 const Recipes = () => {
 
+    const [recipes,setRecipes] = useState([])
+    const [id,setId] = useState()
+    const [query, setQuery] = useState('chicken')
     
+
     useEffect(()=>{
+
         const getRecipe = async() => {
-            const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=apples`)
+            const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=${query}`)
             const res = await call.json()
             console.log(res)
             setRecipes(res)
@@ -14,8 +18,6 @@ const Recipes = () => {
         getRecipe()
     },[])
     
-    const [recipes,setRecipes] = useState([])
-    const [id,setId] = useState()
 
     const showId = async(e) => {
         const call = await fetch(`https://api.spoonacular.com/recipes/${e.target.id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
@@ -23,26 +25,35 @@ const Recipes = () => {
         console.log(res);
     }
 
+    const getQuery = (e) => {
+        e.preventDefault()
+        setQuery(e.target[0].value);
+    }
+
     return (
-        <div className='recipes-div'>
-            <div>
-                <Search/>
+        <div>
+            <div className='search-div'>
+                <form onSubmit={getQuery}>
+                    <input type='text' placeholder="chicken"/>
+                    <button type='submit'>search</button>
+                </form>
             </div>
-            <br/>
-            {
-                recipes.map((item,i) => {
-                    return(
-                        <div id='recipe' className={`recipe${i}`} key={i} onClick={showId}>
-                            <h1 id={item.id} 
-                            onClick={(e) =>
-                                setId(e.target.id)
-                            }>
-                            {item.title}
-                            </h1>
-                        </div>
-                    )
-                })
-            }
+            <div className='recipes-div'>
+                {
+                    recipes.map((item,i) => {
+                        return(
+                            <div id='recipe' className={`recipe${i}`} key={i} onClick={showId}>
+                                <h1 id={item.id} 
+                                onClick={(e) =>
+                                    setId(e.target.id)
+                                }>
+                                {item.title}
+                                </h1>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

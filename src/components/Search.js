@@ -1,7 +1,7 @@
 const Search = () => {
     return (
         <>
-            <div>
+            <div className="search-div">
                 <input type='text' placeholder="mac and cheese"/>
             </div>
         </>

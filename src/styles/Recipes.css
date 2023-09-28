@@ -1,12 +1,14 @@
-.recipesDiv {
+.recipes-div {
     display: grid;
     grid-template-columns: repeat(2,0.3fr);
     grid-template-rows: repeat(5,1.2fr);
     place-items: center;
     justify-content: center;
 }
+
 #recipe{
-    font-family: Poppins, sans-serif;
+    font-family: Bookman Old Style,Poppins, sans-serif;
+    font-style: thin;
     cursor: pointer;
 }
 #recipe::after {

@@ -1,8 +1,44 @@
 .App {
   text-align: center;
 }
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1}
+}
+@keyframes textToSide {
+  100% {transform: translate(0%,0%);}
+  100% {transform:translate(-10%,-10%);}
+}
 body {
   margin: 0;
   padding: 0;
   background-color: #186CE094;
+  font-family: Bookman Old Style,Poppins, sans-serif;
+}
+.nav {
+  font-family: Editoral New;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 900;
+}
+.home-div {
+  animation: fadeIn 2s;
+  text-align: left;
+  width: 60%;
+  line-height: 1.5;
+  margin-left: 10em;
+}
+.home-div h1 {
+  font-size: 50px;
+  animation: textToSide 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.home-div div {
+  animation: textToSide 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.recipes-div {
+  animation: fadeIn 2s;
 }

@@ -28,7 +28,19 @@ hr {
   text-align: left;
   width: 60%;
   line-height: 1.5;
-  margin-left: 10em;
+  margin-left:14em;
+}
+.home-div img {
+  box-sizing: border-box;
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  margin-right: 5em;
+  opacity: 0.4;
+  border-radius: 30px;
+  right:1.5em;
+  scale: 1.1;
+  padding: 1em;
 }
 .home-div h1 {
   font-size: 50px;

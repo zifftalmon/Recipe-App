@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react'
+import Search from './Search'
 
 const Recipes = () => {
 
@@ -33,7 +34,7 @@ const Recipes = () => {
     }
 
 
-    if(recipes.length == 0) {
+    if(recipes.length == 0 && query.length >= 1) {
         return (
             <div>
                 <div className='search-div'>
@@ -42,23 +43,23 @@ const Recipes = () => {
                         <button type='submit'>search</button>
                     </form>
                 </div>
-                <h1>please enter a letter or an ingredint</h1>
+                <h1>we couldnt find a recipe</h1>
             </div>
         )
-    } else if (recipes.length == 0) {
+    } else if (query.length == 0) {
         console.log('two');
         return (
             <div>
-                <h1>we couldnt find a recipe with this ingredient</h1>
+                <h1>please enter an ingredient or letter</h1>
             </div>
         )
     }
     console.log(query);
-
     console.log(recipes);
 
     return (        
         <div>
+            {/* <Search query={query}/> */}
             <div className='search-div'>
                 <form onSubmit={getQuery}>
                     <input type='text' placeholder="chicken"/>

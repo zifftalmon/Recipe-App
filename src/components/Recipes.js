@@ -10,7 +10,8 @@ const Recipes = () => {
 
     useEffect(()=>{
         const getRecipe = async() => {
-            const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=${query}`)
+            // const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=${query}`)
+            const call = await fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=291adf2def974e05a2e7a225ab807799&number=10&query=${query}`)
             const res = await call.json()
             setRecipes(res)
         }
@@ -20,7 +21,10 @@ const Recipes = () => {
 
     const showId = async(e) => {
         const call = await fetch(`https://api.spoonacular.com/recipes/${e.target.id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
+        const newCall = await fetch(`https://api.spoonacular.com/recipes/${e.target.id}/ingredientWidget.json?apiKey=291adf2def974e05a2e7a225ab807799`)
+        const newRes = await newCall.json()
         const res = await call.json()
+        console.log(res,newRes);
     }
 
     const getQuery = (e) => {
@@ -28,7 +32,6 @@ const Recipes = () => {
         setQuery(e.target[0].value);
     }
 
-    console.log(recipes);
 
     if(recipes.length == 0) {
         return (
@@ -39,10 +42,20 @@ const Recipes = () => {
                         <button type='submit'>search</button>
                     </form>
                 </div>
-                <h1>hello</h1>
+                <h1>please enter a letter or an ingredint</h1>
+            </div>
+        )
+    } else if (recipes.length == 0) {
+        console.log('two');
+        return (
+            <div>
+                <h1>we couldnt find a recipe with this ingredient</h1>
             </div>
         )
     }
+    console.log(query);
+
+    console.log(recipes);
 
     return (        
         <div>
@@ -63,6 +76,7 @@ const Recipes = () => {
                                 }>
                                 {item.title}
                                 </h1>
+                                {/* <img alt='Dish-Photo'src={item.image}></img> */}
                             </div>
                         )
                     })

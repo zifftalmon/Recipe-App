@@ -7,7 +7,6 @@ const Nav = () => {
             <li><Link style={{textDecoration:'none', color:'black'}} to='/'>Home</Link></li>
             <li><Link style={{textDecoration:'none', color:'black'}} to='/recipes'>Recipes</Link></li>
             <li><Link style={{textDecoration:'none', color:'black'}} to='/favorites'>Favorites</Link></li>
-            <li><Link style={{textDecoration:'none', color:'black'}} to='/recipe-of-the-day'>Recipe of the Day</Link></li>
             <li><Link style={{textDecoration:'none', color:'black'}} to='/about'>About us</Link></li>
             </ul>
         </div>

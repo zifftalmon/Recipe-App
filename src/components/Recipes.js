@@ -12,7 +12,7 @@ const Recipes = () => {
     useEffect(()=>{
         const getRecipe = async() => {
             // const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=${query}`)
-            const call = await fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=291adf2def974e05a2e7a225ab807799&number=10&query=${query}`)
+            const call = await fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=291adf2def974e05a2e7a225ab807799&number=24&query=${query}`)
             const res = await call.json()
             setRecipes(res)
         }
@@ -70,7 +70,7 @@ const Recipes = () => {
                 {
                     recipes.map((item,i) => {
                         return(
-                            <div id='recipe' className={`recipe${i}`} key={i} onClick={showId}>
+                            <div id='recipe' className={`recipe`} key={i} onClick={showId}>
                                 <h1 id={item.id} 
                                 onClick={(e) =>
                                     setId(e.target.id)

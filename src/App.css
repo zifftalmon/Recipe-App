@@ -67,20 +67,21 @@ hr {
   font-style: thin;
   cursor: pointer;
 }
-#recipe::after {
-  border: 1px solid black;
-}
-.recipe1,.recipe2,.recipe5,.recipe6,.recipe9 {
+.recipe {
   text-align: center;
   width: 25vw;
   padding: 1.2em;
   margin: 1em;
   display: flex;
-  justify-content: baseline;
+  justify-content: center;
   align-items: baseline;
   background-color: #4e87841f;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px; 
+}
+.recipe:hover {
+  scale: 1.1;
+  transition: 0.5s;
 }
 /* search component style */
 .search-div {

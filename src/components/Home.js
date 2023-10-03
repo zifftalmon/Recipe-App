@@ -28,15 +28,19 @@ console.log(ranRecipe);
                         We invite to join sign up and enjoy the most from our website!
                         Happy cooking!
                     </h2>
+                    <div className="home-recipes">
                     {
                         ranRecipe.map((item,i) => {
                             return(
+                            <div className="ran-recipes">
                                 <div>
                                     <h3>{item.title}</h3>
                                 </div>
+                            </div>
                             )
                         })
                     }
+                    </div>
                 </div>
             </div>
     )

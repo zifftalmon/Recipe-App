@@ -4,10 +4,9 @@ import { useParams } from "react-router-dom"
 
 const Recipe = () => {
     const {id} = useParams();
-    const [details, setDetails] = ([])
-    const [recipe,setRecipe] = ([])
-    const [ingredients,setIngredients] = ([])
-
+    const [recipe,setRecipe] = useState([])
+    const [ingredients,setIngredients] = useState([])
+    const [details,setDetails] = useState([])
     useEffect(() => {
         fetch(`/recipes/${id}`)
         .then(res => res.json())
@@ -20,19 +19,26 @@ const Recipe = () => {
             const newRes = await newCall.json()
             const res = await call.json()
             setRecipe(res)
-            setIngredients(newRes)
-            console.log(res,newRes);
+            setIngredients(newRes.ingredients)
         }
         getdetails()
-    })
-
+    },[])
     return (
         <div>
-            {recipe.map((item,i) => {
+            {ingredients.map((item,i) => {
+                console.log(i-3);
                 console.log(item);
                 return(
-                    <div>
-                        <h1>{item}</h1>
+                    <div key={i}>
+                        <h1>{item.name}</h1>
+                    </div>
+                )
+            })}
+            <hr/>
+            {recipe.map((item,i) => {
+                return(
+                    <div key={i}>
+                        <h1>{item.steps[i].step}</h1>
                     </div>
                 )
             })}

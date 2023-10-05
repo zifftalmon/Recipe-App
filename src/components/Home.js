@@ -35,7 +35,7 @@ console.log(ranRecipe);
         {
             ranRecipe.map((item,i) => {
                 return(
-                <div className="ran-recipes">
+                <div className="ran-recipes" key={i}>
                     <div>
                         <h3>{item.title}</h3>
                     </div>

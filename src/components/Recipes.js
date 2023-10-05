@@ -6,9 +6,7 @@ const Recipes = () => {
 
     const [recipes,setRecipes] = useState([])
     const [id,setId] = useState()
-    const [query, setQuery] = useState('chicken')
-    console.log(id);
-    
+    const [query, setQuery] = useState('chicken')    
 
 
     useEffect(()=>{
@@ -65,9 +63,6 @@ const Recipes = () => {
             </div>
         )
     }
-    // console.log(query);
-    // console.log(recipes);
-
     return (        
         <div>
             {/* <Search query={query}/> */}

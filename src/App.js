@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/recipes' element={<Recipes/>}/>
-        {/* <route path='/recipe/:id' element={<Recipe/>}/> */}
+        <Route path='/recipes/:id' element={<Recipe/>}/>
       </Routes>
     </div>
     </HashRouter>

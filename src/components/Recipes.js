@@ -1,11 +1,13 @@
 import {useState,useEffect} from 'react'
 import Search from './Search'
+import { Link } from 'react-router-dom'
 
 const Recipes = () => {
 
     const [recipes,setRecipes] = useState([])
     const [id,setId] = useState()
     const [query, setQuery] = useState('chicken')
+    console.log(id);
     
 
 
@@ -25,7 +27,7 @@ const Recipes = () => {
         const newCall = await fetch(`https://api.spoonacular.com/recipes/${e.target.id}/ingredientWidget.json?apiKey=291adf2def974e05a2e7a225ab807799`)
         const newRes = await newCall.json()
         const res = await call.json()
-        console.log(res,newRes);
+        // console.log(res,newRes);
     }
 
     const getQuery = (e) => {
@@ -50,12 +52,21 @@ const Recipes = () => {
         console.log('two');
         return (
             <div>
+                <div>
+                <div className='search-div'>
+                    <form onSubmit={getQuery}>
+                        <input type='text' placeholder="chicken"/>
+                        <button type='submit'>search</button>
+                    </form>
+                </div>
+                <h1>we couldnt find a recipe</h1>
+            </div>
                 <h1>please enter an ingredient or letter</h1>
             </div>
         )
     }
-    console.log(query);
-    console.log(recipes);
+    // console.log(query);
+    // console.log(recipes);
 
     return (        
         <div>
@@ -71,12 +82,14 @@ const Recipes = () => {
                     recipes.map((item,i) => {
                         return(
                             <div id='recipe' className={`recipe`} key={i} onClick={showId}>
+                                <Link style={{textDecoration:'none', color:'black'}} to={`/recipes/${item.id}`}>
                                 <h1 id={item.id} 
                                 onClick={(e) =>
                                     setId(e.target.id)
                                 }>
                                 {item.title}
                                 </h1>
+                                </Link>
                                 {/* <img alt='Dish-Photo'src={item.image}></img> */}
                             </div>
                         )

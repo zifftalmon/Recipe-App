@@ -54,15 +54,16 @@ hr {
   animation-fill-mode: forwards;
 }
 .home-recipes {
-  /* border: 3px solid red; */
   display: grid;
-  width: 20%;
-  margin: 5em 0 0 45em;
+  justify-content: right;
+  margin: 2em 1em 0 0;
 }
 .ran-recipes {
   display: flex;
   justify-content: baseline;
-    /* border: 3px solid red; */
+  /* border: 3px solid red; */
+  padding: 2em;
+  margin: 1em 4em 0 0;
 }
 /* recipes component styles */
 .recipes-div {

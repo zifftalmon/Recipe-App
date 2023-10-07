@@ -26,11 +26,19 @@ const Recipe = () => {
     },[])
     console.log(ingredients,recipe);
     console.log(title);
+    if(ingredients.length == 0 || recipe.length == 0) {
+        return (
+            <div>
+                <h1>recipe not found</h1>
+            </div>
+        )
+    }
     return (
         <>
         <button>
             <Link style={{textDecoration:'none', color:'black'}} to='/recipes'>back to recipes</Link>    
         </button>
+        {recipe.length == 0 || ingredients.length == 0 ? <div><h1>recipe not found</h1></div>:
         <div>
             <h1>{title}</h1>
             <div className="ingredients-container">
@@ -61,6 +69,7 @@ const Recipe = () => {
                 })}
             </div>
         </div>
+        }
         </>
     )
 }

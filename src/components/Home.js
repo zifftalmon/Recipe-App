@@ -13,7 +13,6 @@ useEffect(() => {
     randomRecipe()
 },[])
 
-console.log(ranRecipe);
 
     return (
         <>

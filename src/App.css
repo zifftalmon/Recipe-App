@@ -104,3 +104,27 @@ hr {
   font-family: Bookman Old Style,Poppins, sans-serif;
   font-size: 20px;
 }
+/* recipe components style */
+.ingredients-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(580px,1fr));
+  border: 3px solid red;
+}
+.ingredients-div {
+  /* border: 3px solid red; */
+  text-align: left;
+}
+.ingredients-div ul li{
+  list-style: none;
+  padding: 20px;
+}
+.ingredients-div ul li input[type='checkbox']{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+.recipe-container {
+  width: 80%;
+  border: 3px solid red;
+  text-align: left;
+}

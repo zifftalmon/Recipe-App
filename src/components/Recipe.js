@@ -29,22 +29,31 @@ const Recipe = () => {
             <Link style={{textDecoration:'none', color:'black'}} to='/recipes'>back to recipes</Link>    
         </button>
         <div>
-            {ingredients.map((item,i) => {
-                return(
-                    <div key={i}>
-                        <h1>{item.name}</h1>
-                    </div>
-                )
-            })}
+            <div className="ingredients-container">
+                {ingredients.map((item,i) => {
+                    return(
+                        <div className="ingredients-div" key={i}>
+                            <ul> 
+                                <h1>
+                                    <li>
+                                        <input type="checkbox"/>{item.name}
+                                    </li>
+                                </h1>
+                            </ul>
+                        </div>
+                    )
+                })}
+            </div>
             <hr/>
-            {recipe.map((item,i) => {
-                console.log(item.step);
-                return(
-                    <div key={i}>
-                        <h1>{i+1}.{item.step}</h1>
-                    </div>
-                )
-            })}
+            <div className="recipe-container">
+                {recipe.map((item,i) => {
+                    return(
+                        <div className="recipe-div" key={i}>
+                            <h2>{i+1}.{item.step}</h2>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
         </>
     )

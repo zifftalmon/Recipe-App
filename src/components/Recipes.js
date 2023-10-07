@@ -1,5 +1,4 @@
 import {useState,useEffect} from 'react'
-import Search from './Search'
 import { Link } from 'react-router-dom'
 
 const Recipes = () => {
@@ -47,7 +46,6 @@ const Recipes = () => {
             </div>
         )
     } else if (query.length == 0) {
-        console.log('two');
         return (
             <div>
                 <div>

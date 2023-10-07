@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 
 const Recipe = () => {
     const {id} = useParams();
+    const {title} = useParams();
     const [recipe,setRecipe] = useState([])
     const [ingredients,setIngredients] = useState([])
     const [details,setDetails] = useState([])
@@ -23,24 +24,29 @@ const Recipe = () => {
         }
         getdetails()
     },[])
+    console.log(ingredients,recipe);
+    console.log(title);
     return (
         <>
         <button>
             <Link style={{textDecoration:'none', color:'black'}} to='/recipes'>back to recipes</Link>    
         </button>
         <div>
+            <h1>{title}</h1>
             <div className="ingredients-container">
                 {ingredients.map((item,i) => {
                     return(
+                        <>
                         <div className="ingredients-div" key={i}>
                             <ul> 
-                                <h1>
+                                <h3>
                                     <li>
-                                        <input type="checkbox"/>{item.name}
+                                        <input type="checkbox"/>{item.amount.us.value} {item.amount.us.unit} / {item.amount.metric.value} {item.amount.metric.unit} {item.name}
                                     </li>
-                                </h1>
+                                </h3>
                             </ul>
                         </div>
+                        </>
                     )
                 })}
             </div>

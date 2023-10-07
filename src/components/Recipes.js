@@ -75,7 +75,7 @@ const Recipes = () => {
                     recipes.map((item,i) => {
                         return(
                             <div id='recipe' className={`recipe`} key={i} onClick={showId}>
-                                <Link style={{textDecoration:'none', color:'black'}} to={`/recipes/${item.id}`}>
+                                <Link style={{textDecoration:'none', color:'black'}} to={`/recipes/${item.id}/${item.title}`}>
                                 <h1 id={item.id} 
                                 onClick={(e) =>
                                     setId(e.target.id)
@@ -83,7 +83,6 @@ const Recipes = () => {
                                 {item.title}
                                 </h1>
                                 </Link>
-                                {/* <img alt='Dish-Photo'src={item.image}></img> */}
                             </div>
                         )
                     })

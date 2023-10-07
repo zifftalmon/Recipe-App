@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 const Recipe = () => {
@@ -18,16 +18,18 @@ const Recipe = () => {
             const newCall = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=291adf2def974e05a2e7a225ab807799`)
             const newRes = await newCall.json()
             const res = await call.json()
-            setRecipe(res)
+            setRecipe(res[0].steps)
             setIngredients(newRes.ingredients)
         }
         getdetails()
     },[])
     return (
+        <>
+        <button>
+            <Link style={{textDecoration:'none', color:'black'}} to='/recipes'>back to recipes</Link>    
+        </button>
         <div>
             {ingredients.map((item,i) => {
-                console.log(i-3);
-                console.log(item);
                 return(
                     <div key={i}>
                         <h1>{item.name}</h1>
@@ -36,13 +38,15 @@ const Recipe = () => {
             })}
             <hr/>
             {recipe.map((item,i) => {
+                console.log(item.step);
                 return(
                     <div key={i}>
-                        <h1>{item.steps[i].step}</h1>
+                        <h1>{i+1}.{item.step}</h1>
                     </div>
                 )
             })}
         </div>
+        </>
     )
 }
 

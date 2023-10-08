@@ -1,5 +1,4 @@
 import './App.css';
-import './styles/Nav.css'
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Recipe from './components/Recipe';

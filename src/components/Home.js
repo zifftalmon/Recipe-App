@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import recipes from '../JSON/randomrecipe.json'
 
 const Home = () => {
 
@@ -6,14 +7,14 @@ const Home = () => {
 
 useEffect(() => {
     const randomRecipe = async() => {
-        const call = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=291adf2def974e05a2e7a225ab807799&number=3&tags=vegetarian`)
-        const res = await call.json()
-        setRanRacipe(res.recipes)
+        // const call = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=291adf2def974e05a2e7a225ab807799&number=3&tags=vegetarian`)
+        // const res = await call.json()
+        setRanRacipe(recipes.recipes)
     }
     randomRecipe()
 },[])
 
-
+console.log(recipes);
     return (
         <>
         <div className="home-div">

@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import CustomData from '../JSON/recipes.json'
 
 const Recipes = () => {
 
@@ -11,9 +12,9 @@ const Recipes = () => {
     useEffect(()=>{
         const getRecipe = async() => {
             // const call = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=291adf2def974e05a2e7a225ab807799&ingredients=${query}`)
-            const call = await fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=291adf2def974e05a2e7a225ab807799&number=24&query=${query}`)
-            const res = await call.json()
-            setRecipes(res)
+            // const call = await fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=291adf2def974e05a2e7a225ab807799&number=24&query=${query}`)
+            // const res = await call.json()
+            setRecipes(CustomData.CustomData)
         }
         getRecipe()
     },[query])
@@ -61,6 +62,7 @@ const Recipes = () => {
             </div>
         )
     }
+    console.log(CustomData);
     return (        
         <div>
             {/* <Search query={query}/> */}

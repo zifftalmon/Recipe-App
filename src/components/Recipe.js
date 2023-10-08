@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
+import ingredientsjson from '../JSON/ingredients.json'
+import instruction from '../JSON/instructions.json'
 
 
 const Recipe = () => {
@@ -15,16 +17,16 @@ const Recipe = () => {
 
 
         const getdetails = async() => {
-            const call = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
-            const newCall = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=291adf2def974e05a2e7a225ab807799`)
-            const newRes = await newCall.json()
-            const res = await call.json()
-            setRecipe(res[0].steps)
-            setIngredients(newRes.ingredients)
+            // const call = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=291adf2def974e05a2e7a225ab807799`)
+            // const newCall = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=291adf2def974e05a2e7a225ab807799`)
+            // const newRes = await newCall.json()
+            // const res = await call.json()
+            setRecipe(instruction.instruction[0].steps)
+            setIngredients(ingredientsjson.ingredients)
         }
         getdetails()
     },[])
-    console.log(ingredients,recipe);
+    console.log(ingredientsjson);
     console.log(title);
     if(ingredients.length == 0 || recipe.length == 0) {
         return (

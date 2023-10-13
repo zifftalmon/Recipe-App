@@ -34,7 +34,7 @@ const Recipes = () => {
     }
 
 
-    if(recipes.length == 0 && query.length >= 1) {
+    if(recipes.length === 0 && query.length >= 1) {
         return (
             <div>
                 <div className='search-div'>
@@ -46,7 +46,7 @@ const Recipes = () => {
                 <h1>we couldnt find a recipe</h1>
             </div>
         )
-    } else if (query.length == 0) {
+    } else if (query.length === 0) {
         return (
             <div>
                 <div>
@@ -62,10 +62,8 @@ const Recipes = () => {
             </div>
         )
     }
-    console.log(CustomData);
     return (        
         <div>
-            {/* <Search query={query}/> */}
             <div className='search-div'>
                 <form onSubmit={getQuery}>
                     <input type='text' placeholder="chicken"/>

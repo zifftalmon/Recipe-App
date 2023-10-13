@@ -18,6 +18,7 @@ body {
 hr {
   width: 80%;
 }
+/* navbar style */
 .nav {
   font-style: italic;
   font-size: 20px;
@@ -121,14 +122,40 @@ hr {
   font-size: 20px;
 }
 /* recipe components style */
+.btn-div {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+}
+.recipe-btn, .fav-btn {
+  display: flex;
+  margin: 2em ;
+  width: 30vw;
+  height: 10vh;
+  border-radius: 10px;
+  cursor: pointer;
+  scale: 1;
+  transition: 0.5s;
+  border: none;
+  justify-content: center;
+  align-items: center;
+}
+.fav-btn img {
+  width: 15px;
+  height: 15px;
+}
+.recipe-btn:hover,.fav-btn:hover {
+  scale: 1.1;
+}
 .ingredients-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
   border: 3px solid red;
   text-align: center;
 }
 .ingredients-container ul {
   list-style: none;
+  align-self: baseline;
 }
 .ingredients-div {
   justify-self: center;
@@ -142,14 +169,15 @@ hr {
   justify-self: flex-end;
   text-align: justify;
 }
-
-.ingredients-div ul li input[type='checkbox']{
-  width: 18px;
-  height: 18px;
-  /* margin: 10px; */
-}
 .recipe-container {
-  width: 80%;
+  display: grid;
+  justify-content: center;
   border: 3px solid red;
   text-align: left;
+  margin:5em 0 0 5em;
+  width: 50%;
+  padding: 2em;
 }
+/* .recipe-div {
+  border: 3px solid red;
+} */

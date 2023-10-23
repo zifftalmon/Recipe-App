@@ -36,9 +36,19 @@ hr {
 }
 .nav ul li {
   margin-right: 30px;
+  scale:1;
+  transition: 0.5s;
+}
+.nav ul li:hover {
+  scale: 1.1;
 }
 .nav h1 {
   margin-left: 10px;
+  scale: 1;
+  transition: 0.5s;
+}
+.nav h1:hover {
+  scale: 1.1;
 }
 .home-div {
   animation: fadeIn 2s;
@@ -107,10 +117,11 @@ hr {
   background-color: #4e87841f;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px; 
+  scale: 1;
+  transition: 0.5s;
 }
 .recipe:hover {
   scale: 1.1;
-  transition: 0.5s;
 }
 /* search component style */
 .search-div {
@@ -122,6 +133,12 @@ hr {
   font-size: 20px;
 }
 /* recipe components style */
+#recipeContainer {
+  animation: fadeIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 .btn-div {
   display: grid;
   place-items: center;
@@ -141,8 +158,9 @@ hr {
   align-items: center;
 }
 .fav-btn img {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 }
 .recipe-btn:hover,.fav-btn:hover {
   scale: 1.1;
@@ -150,8 +168,11 @@ hr {
 .ingredients-container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  border: 3px solid red;
+  /* border: 3px solid red; */
   text-align: center;
+}
+.ingredients-container input[type='checkbox'] {
+  cursor: pointer;
 }
 .ingredients-container ul {
   list-style: none;
@@ -172,7 +193,7 @@ hr {
 .recipe-container {
   display: grid;
   justify-content: center;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   text-align: left;
   margin:5em 0 0 5em;
   width: 50%;

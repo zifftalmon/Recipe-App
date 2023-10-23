@@ -15,6 +15,7 @@ const Recipe = () => {
     const [info,setInfo] = useState([])
     const [details,setDetails] = useState([])
     const [icon,setIcon] = useState('icons8-heart-50.png')
+    const [favorite,setFavorite] = useState(false)
 
     useEffect(() => {
         fetch(`/recipes/${id}`)
@@ -44,29 +45,34 @@ const Recipe = () => {
         )
     }
 
-    const setFavorite = () => {
-        setIcon('icons8-heart-black-50.png')
-        setTimeout(() => {
-            alert('added to favorites')
-        },600)
-        
-        if(icon == 'icons8-heart-black-50.png') {
+    const setFav = () => {
+        if(icon == 'icons8-heart-50.png') {
+            setIcon('icons8-heart-black-50.png')
+            setTimeout(() => {
+                alert('Added to Favorites')
+            },600)
+            setFavorite(true)
+        }
+
+        if(icon == 'icons8-heart-black-50.png' || setFavorite == true) {
             setIcon('icons8-heart-50.png')
             setTimeout(() => {
-                alert('removed from favorites')
+                alert('Removed from Favorites')
             },600)
+            setFavorite(false)
         }
     }
     return (
         <>
+        <div id="recipeContainer">
         <div className="btn-div">
             <Link style={{textDecoration:'none', color:'black'}} to='/recipes'>
                 <button className="recipe-btn">
                     back to recipes
                 </button>
             </Link>    
-            <button className="fav-btn" onClick={setFavorite}>
-                Add to Favorites  <img src={icon}/>
+            <button className="fav-btn" onClick={setFav}>
+                Add to Favorites  <img alt='heart-icon' src={icon}/>
             </button>
         </div>
         {recipe.length === 0 || ingredients.length === 0 ? <div><h1>recipe not found</h1></div>:
@@ -82,7 +88,9 @@ const Recipe = () => {
                                 <ul> 
                                     <h3>
                                         <li>
-                                            <input type="checkbox"/>{item.amount.us.value} {item.amount.us.unit} / {item.amount.metric.value} {item.amount.metric.unit} {item.name}
+                                            <label htmlFor={item.name}>
+                                                <input id={item.name} type="checkbox"/>{item.amount.us.value} {item.amount.us.unit} / {item.amount.metric.value} {item.amount.metric.unit} {item.name}
+                                            </label>
                                         </li>
                                     </h3>
                                 </ul>
@@ -119,6 +127,7 @@ const Recipe = () => {
             </div>
         </div>
         }
+        </div>
         </>
     )
 }

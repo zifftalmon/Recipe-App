@@ -5,7 +5,7 @@ const Favorites = () => {
 
     useEffect(() => { 
         const getFav = async() => {
-            const call = await fetch('http://localhost:3001/recipes')
+            const call = await fetch('/recipes')
             const res = await call.json()
             console.log(res);
         }
@@ -15,6 +15,7 @@ const Favorites = () => {
 
     return (
         <div>
+            <h1>favorites</h1>
             <h1>{list.map(item => item)}</h1>
         </div>
     )

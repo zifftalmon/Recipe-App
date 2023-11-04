@@ -49,12 +49,12 @@ const Recipe = () => {
         const recipeName = title
         const recipeID = id
         if(icon == 'icons8-heart-50.png') {
-            fetch('http://localhost:3001/recipes', {
+            fetch('/recipes', {
                 method: 'POST',
                 headers: {
-                    'Contetnt-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({name: recipeName, recipeId: recipeID})
+                body: JSON.stringify({name: title, recipeId: id})
             })
             .then(data => data.json())
             .then(res => console.log(res))

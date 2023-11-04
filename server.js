@@ -2,7 +2,7 @@ const express = require('express')
 const {json, urlencoded} = require('express')
 const cors = require('cors')
 const {getDb} = require('./config/db.js')
-const path = require('path')
+const {ObjectId} = require('mongodb')
 require('dotenv').config()
 
 
@@ -45,5 +45,17 @@ app.post('/recipes', (req,res) => {
     })
     .catch(err => {
         res.status(500).json({err: 'could not create new document'})
+    })
+})
+
+app.delete('/recipes', (req,res) => {
+    console.log(req.body.recipeId);
+    getDb('recipes')
+    .deleteOne({recipeId: req.body.recipeId})
+    .then(result => {
+        res.status(201).json(result)
+    })
+    .catch(err => {
+        res.status(500).json({err: 'could not delete'})
     })
 })

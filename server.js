@@ -38,9 +38,8 @@ app.get('/recipes', (req,res) => {
 })
 
 app.post('/recipes', (req,res) => {
-    const recipe = req.body
     getDb('recipes')
-    .insertOne(recipe)
+    .insertOne(req.body)
     .then(result => {
         res.status(200).json(result)
     })

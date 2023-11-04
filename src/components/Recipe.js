@@ -45,15 +45,27 @@ const Recipe = () => {
         )
     }
 
-    const setFav = () => {
+    const handleFav = () => {
+        const recipeName = title
+        const recipeID = id
         if(icon == 'icons8-heart-50.png') {
+            fetch('http://localhost:3001/recipes', {
+                method: 'POST',
+                headers: {
+                    'Contetnt-Type': 'application/json'
+                },
+                body: JSON.stringify({name: recipeName, recipeId: recipeID})
+            })
+            .then(data => data.json())
+            .then(res => console.log(res))
+
             setIcon('icons8-heart-black-50.png')
             setTimeout(() => {
                 alert('Added to Favorites')
             },600)
             setFavorite(true)
         }
-
+        
         if(icon == 'icons8-heart-black-50.png' || setFavorite == true) {
             setIcon('icons8-heart-50.png')
             setTimeout(() => {
@@ -71,7 +83,7 @@ const Recipe = () => {
                     back to recipes
                 </button>
             </Link>    
-            <button className="fav-btn" onClick={setFav}>
+            <button className="fav-btn" onClick={handleFav}>
                 Add to Favorites  <img alt='heart-icon' src={icon}/>
             </button>
         </div>

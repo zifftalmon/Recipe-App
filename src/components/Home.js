@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import recipes from '../JSON/randomrecipe.json'
 
-const Home = () => {
+const Home = (props) => {
 
 // variable to store random racipes
 const [ranRecipe,setRanRacipe] = useState([])
@@ -10,7 +10,7 @@ const [ranRecipe,setRanRacipe] = useState([])
 // function for fetching random recipes
 useEffect(() => {
     const randomRecipe = async() => {
-        // const call = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=291adf2def974e05a2e7a225ab807799&number=3&tags=vegetarian`)
+        // const call = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${props.pass}&number=3&tags=vegetarian`)
         // const res = await call.json()
         setRanRacipe(recipes.recipes)
     }
